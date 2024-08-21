@@ -3,38 +3,76 @@
 namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Delete;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\GetCollection;
+use ApiPlatform\Metadata\Patch;
+use ApiPlatform\Metadata\Post;
 use App\Repository\BookRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\ORM\Mapping\Column;
+use Symfony\Component\Serializer\Attribute\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: BookRepository::class)]
-#[ApiResource]
+#[ORM\UniqueConstraint(name: 'bookTitleByAuthor', columns: ['title', 'author'])]
+#[ApiResource(
+  operations: [
+    new Get(),
+    new GetCollection(),
+    new Post(),
+    new Patch(),
+    new Delete()
+  ],
+
+  normalizationContext: [
+    'groups' => ['book:read']
+  ],
+  denormalizationContext: [
+    'groups' => ['book:write']
+  ]
+)]
 class Book
 {
-  #[ORM\Id]
-  #[ORM\GeneratedValue]
-  #[ORM\Column(name: 'id', type: 'integer')]
+  #[
+    Groups(['book:read']),
+    ORM\Id,
+    ORM\GeneratedValue,
+    ORM\Column(name: 'id', type: 'integer')
+  ]
   private int $id;
 
-  #[ORM\Column(name: 'uuid', type: 'uuid', unique: true)]
-  private string $uuid;
-
-  #[ORM\Column(name: 'title', type: 'string')]
+  #[
+    Assert\NotBlank,
+    Assert\Type('string'),
+    Groups(['book:read', 'book:write']),
+    ORM\Column(name: 'title', type: 'string')
+  ]
   private string $title;
 
-  #[ORM\Column(name: 'author', type: 'string')]
+  #[
+    Assert\NotBlank,
+    Assert\Type('string'),
+    Groups(['book:read', 'book:write']),
+    ORM\Column(name: 'author', type: 'string')
+  ]
   private string $author;
 
   /**
    * @var Collection<int, BorrowedBook>
    */
-  #[ORM\OneToMany(targetEntity: BorrowedBook::class, mappedBy: 'book', orphanRemoval: true)]
+  #[
+    Groups(['book:read']),
+    ORM\OneToMany(targetEntity: BorrowedBook::class, mappedBy: 'book', orphanRemoval: true)
+  ]
   private Collection $borrowedBooks;
 
-  #[ORM\ManyToOne(targetEntity: Library::class, inversedBy: 'books')]
-  #[ORM\JoinColumn()]
+  #[
+    Groups(['book:read', 'book:write']),
+    ORM\ManyToOne(targetEntity: Library::class, inversedBy: 'books'),
+    ORM\JoinColumn
+  ]
   private ?Library $library = null;
 
   public function __construct()
@@ -45,18 +83,6 @@ class Book
   public function getId(): int
   {
     return $this->id;
-  }
-
-  public function getUuid(): string
-  {
-    return $this->uuid;
-  }
-
-  public function setUuid(string $uuid): static
-  {
-    $this->uuid = $uuid;
-
-    return $this;
   }
 
   public function getTitle(): string

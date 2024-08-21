@@ -3,33 +3,67 @@
 namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Delete;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\GetCollection;
+use ApiPlatform\Metadata\Patch;
+use ApiPlatform\Metadata\Post;
 use App\Repository\LibraryRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Attribute\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: LibraryRepository::class)]
-#[ApiResource]
+#[ApiResource(
+  operations: [
+    new Get(),
+    new GetCollection(),
+    new Post(),
+    new Patch(),
+    new Delete()
+  ],
+  normalizationContext: [
+    'groups' => ['library:read']
+  ],
+  denormalizationContext: [
+    'groups' => ['library:write']
+  ]
+)]
 class Library
 {
-  #[ORM\Id]
-  #[ORM\GeneratedValue]
-  #[ORM\Column(name: 'id', type: 'integer')]
+  #[
+    Groups(['library:read']),
+    ORM\Id,
+    ORM\GeneratedValue,
+    ORM\Column(name: 'id', type: 'integer')
+  ]
   private int $id;
 
-  #[ORM\Column(name: 'uuid', type: 'uuid', unique: true)]
-  private string $uuid;
-
-  #[ORM\Column(name: 'name', type: 'string')]
+  #[
+    Assert\NotBlank,
+    Assert\Type('string'),
+    Groups(['library:read', 'library:write']),
+    ORM\Column(name: 'name', type: 'string')
+  ]
   private string $name;
 
-  #[ORM\Column(name: 'location', type: 'string')]
+  #[
+    Assert\NotBlank,
+    Assert\Type('string'),
+    Groups(['library:read', 'library:write']),
+    ORM\Column(name: 'location', type: 'string')
+  ]
   private string $location;
 
   /**
    * @var Collection<int, Book>
    */
-  #[ORM\OneToMany(targetEntity: Book::class, mappedBy: 'library', orphanRemoval: true)]
+  #[
+    Groups(['library:read']),
+    ORM\OneToMany(targetEntity: Book::class, mappedBy: 'library', orphanRemoval: true)
+  ]
   private Collection $books;
 
   public function __construct()
@@ -40,18 +74,6 @@ class Library
   public function getId(): ?int
   {
     return $this->id;
-  }
-
-  public function getUuid(): ?string
-  {
-    return $this->uuid;
-  }
-
-  public function setUuid(string $uuid): static
-  {
-    $this->uuid = $uuid;
-
-    return $this;
   }
 
   public function getName(): ?string

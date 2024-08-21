@@ -8,3 +8,11 @@
 /var/
 /vendor/
 ###< symfony/framework-bundle ###
+
+###> IDE ###
+/.idea
+###< IDE ###
+
+###> MacOS system files
+.DS_Store
+###< MacOS system files
