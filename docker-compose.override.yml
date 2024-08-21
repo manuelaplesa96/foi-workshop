@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: '${PROJECT_ABBREVIATION}_pma'
+    environment:
+      PMA_HOST: database
+      PMA_USER: ${DB_USER}
+      PMA_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      PMA_PORT: ${DB_PORT}
+    ports:
+      - '${PMA_PORT}:80'
+    depends_on:
+      - database
