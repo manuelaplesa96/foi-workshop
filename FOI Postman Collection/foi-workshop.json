@@ -1,0 +1,70 @@
+{
+	"info": {
+		"_postman_id": "098f48c3-562b-454c-8679-db25e9cb05d5",
+		"name": "FOI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. vjezba - GET request i dokumentacija",
+			"item": [],
+			"id": "c0c59178-6a16-47a0-af06-79ba927fd77a"
+		},
+		{
+			"name": "2. vjezba - POST i PATCH/PUT request",
+			"item": [],
+			"id": "d2143a00-7297-4834-beb8-2393927696ae"
+		},
+		{
+			"name": "3. vjezba - Varijable",
+			"item": [],
+			"id": "1edbb94c-e1f7-45d4-ab8d-75ac60505b31"
+		},
+		{
+			"name": "4. vjezba - Testiranje",
+			"item": [],
+			"id": "cd015da7-eaf9-498a-bd2c-bc61211dcc72"
+		},
+		{
+			"name": "5. vjezba - Run Collection",
+			"item": [],
+			"id": "6c152e47-bcf8-400b-95d2-fc20c5f59207"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "98949169-d70c-4fa1-b859-95bb2aa7046a",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "f5293f1f-e3b5-459d-acc7-125e07aa7d74",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "YOUR-API-KEY",
+			"value": "",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"key": "todo_uuid",
+			"value": ""
+		}
+	]
+}
