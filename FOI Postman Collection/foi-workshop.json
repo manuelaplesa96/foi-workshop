@@ -19,7 +19,7 @@
 						"method": "GET",
 						"header": [],
 						"url": "https://api.restful-api.dev/objects",
-						"description": "### Get Objects\n\nThis endpoint makes an HTTP GET request to retrieve a list of objects.\n\n#### Request Body\n\nThis request does not require a request body.\n\n#### Response\n\n- Status: 200\n    \n- Content-Type: application/json\n    \n\nThe response body returns an array of objects, each containing an \"id\", \"name\", and \"data\" object with \"color\" and \"capacity\" properties.\n\nExample response:\n\n``` json\n[\n    {\n        \"id\": \"1\",\n        \"name\": \"Google Pixel 6 Pro\",\n        \"data\": {\n            \"color\": \"Cloudy White\",\n            \"capacity\": \"128 GB\"\n        }\n    },\n    ...\n]\n\n ```"
+						"description": "This endpoint makes an HTTP GET request to retrieve a list of objects.\n\n### Request Body\n\nThis request does not require a request body.\n\n### Parameters\n\nThis request does not require any parameter.\n\n### Response\n\n- Status: 200\n    \n- Content-Type: application/json\n    \n\nThe response body returns an array of objects, each containing an \"id\", \"name\", and \"data\" object with \"color\" and \"capacity\" properties.\n\n##### Example response:\n\n``` json\n[\n    {\n        \"id\": \"1\",\n        \"name\": \"Google Pixel 6 Pro\",\n        \"data\": {\n            \"color\": \"Cloudy White\",\n            \"capacity\": \"128 GB\"\n        }\n    },\n    ...\n]\n\n ```"
 					},
 					"response": []
 				},
@@ -51,7 +51,7 @@
 								}
 							]
 						},
-						"description": "This endpoint requests an HTTP GET to retrieve information about a specific object identified by its object_id. The purpose of this request is to fetch details of the object.\n\n### Request\n\n- Method: GET\n    \n- URL: `https://api.restful-api.dev/objects/:object_id`\n    \n\n### Specific Headers\n\nNo specific headers are required for this request.\n\n### Parameters\n\n- `object_id` (in the URL path): The unique identifier of the object for which the details are being fetched.\n    \n\n#### Response\n\n- Status: 200\n    \n- Content-Type: application/json\n    \n\nThe response body will contain the details of the object, including its ID, name, and data related to color and capacity in GB.\n\nExample response:\n\n``` json\n{\n    \"id\": \"3\",\n    \"name\": \"Apple iPhone 12 Pro Max\",\n    \"data\": {\n        \"color\": \"Cloudy White\",\n        \"capacity GB\": 512\n    }\n}\n\n ```"
+						"description": "This endpoint requests an HTTP GET to retrieve information about a specific object identified by its object_id. The purpose of this request is to fetch details of the object.\n\n### Request Body\n\nThis request does not require a request\n\n### Parameters\n\n- `object_id` (in the URL path): The unique identifier of the object for which the details are being fetched.\n    \n\n#### Response\n\n- Status: 200\n    \n- Content-Type: application/json\n    \n\nThe response body will contain the details of the object, including its ID, name, and data related to color and capacity in GB.\n\n##### Example response:\n\n``` json\n{\n    \"id\": \"3\",\n    \"name\": \"Apple iPhone 12 Pro Max\",\n    \"data\": {\n        \"color\": \"Cloudy White\",\n        \"capacity GB\": 512\n    }\n}\n\n ```"
 					},
 					"response": []
 				}
