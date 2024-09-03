@@ -80,7 +80,8 @@
 								}
 							}
 						},
-						"url": "https://api.restful-api.dev/objects"
+						"url": "https://api.restful-api.dev/objects",
+						"description": "### Create Object\n\nThis endpoint allows you to create a new object.\n\n#### Request Body\n\n- name (string, required): The name of the object.\n    \n- data (object, required): Additional data for the object including year, price, CPU model, and hard disk size.\n    \n\n#### Response\n\nThe response will be a JSON object with the following schema:\n\n``` json\n{\n    \"type\": \"object\",\n    \"properties\": {\n        \"id\": {\"type\": \"string\"},\n        \"name\": {\"type\": \"string\"},\n        \"createdAt\": {\"type\": \"string\"},\n        \"data\": {\n            \"type\": \"object\",\n            \"properties\": {\n                \"year\": {\"type\": \"number\"},\n                \"price\": {\"type\": \"number\"},\n                \"CPU model\": {\"type\": \"string\"},\n                \"Hard disk size\": {\"type\": \"string\"}\n            }\n        }\n    }\n}\n\n ```"
 					},
 					"response": []
 				}
