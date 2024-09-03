@@ -2,6 +2,7 @@
 	"info": {
 		"_postman_id": "098f48c3-562b-454c-8679-db25e9cb05d5",
 		"name": "FOI",
+		"description": "Collection used in FOI Postman's workshop.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
