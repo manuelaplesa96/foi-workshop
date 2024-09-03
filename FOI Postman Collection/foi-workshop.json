@@ -9,7 +9,7 @@
 			"name": "1. vjezba - GET request i dokumentacija",
 			"item": [
 				{
-					"name": "Objects",
+					"name": "GetObjects",
 					"id": "803e37f4-2944-4f68-b228-033ceaa522b4",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -22,7 +22,7 @@
 					"response": []
 				},
 				{
-					"name": "Object",
+					"name": "GetSingleObject",
 					"id": "b3261d04-9323-4ba1-8838-b6c07abd474d",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -57,7 +57,20 @@
 		},
 		{
 			"name": "2. vjezba - POST i PATCH/PUT request",
-			"item": [],
+			"item": [
+				{
+					"name": "CreateObject",
+					"id": "14f92896-28c9-412c-9702-ea1053999267",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			],
 			"id": "d2143a00-7297-4834-beb8-2393927696ae"
 		},
 		{
