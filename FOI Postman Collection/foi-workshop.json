@@ -9,7 +9,7 @@
 			"name": "1. vjezba - GET request i dokumentacija",
 			"item": [
 				{
-					"name": "ObjectCollection",
+					"name": "GetObjects",
 					"id": "803e37f4-2944-4f68-b228-033ceaa522b4",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -17,16 +17,72 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:8080/api/libraries"
+						"url": "https://api.restful-api.dev/objects",
+						"description": "### Get Objects\n\nThis endpoint makes an HTTP GET request to retrieve a list of objects.\n\n#### Request Body\n\nThis request does not require a request body.\n\n#### Response\n\n- Status: 200\n    \n- Content-Type: application/json\n    \n\nThe response body returns an array of objects, each containing an \"id\", \"name\", and \"data\" object with \"color\" and \"capacity\" properties.\n\nExample response:\n\n``` json\n[\n    {\n        \"id\": \"1\",\n        \"name\": \"Google Pixel 6 Pro\",\n        \"data\": {\n            \"color\": \"Cloudy White\",\n            \"capacity\": \"128 GB\"\n        }\n    },\n    ...\n]\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "GetSingleObject",
+					"id": "b3261d04-9323-4ba1-8838-b6c07abd474d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.restful-api.dev/objects/:object_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"restful-api",
+								"dev"
+							],
+							"path": [
+								"objects",
+								":object_id"
+							],
+							"variable": [
+								{
+									"key": "object_id",
+									"value": ""
+								}
+							]
+						}
 					},
 					"response": []
 				}
 			],
-			"id": "c0c59178-6a16-47a0-af06-79ba927fd77a"
+			"id": "c0c59178-6a16-47a0-af06-79ba927fd77a",
+			"description": "Documentation for FOI Postman workshop's 1st exercise"
 		},
 		{
 			"name": "2. vjezba - POST i PATCH/PUT request",
-			"item": [],
+			"item": [
+				{
+					"name": "CreateObject",
+					"id": "14f92896-28c9-412c-9702-ea1053999267",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"name\": \"Apple MacBook Pro 16\",\n   \"data\": {\n      \"year\": 2019,\n      \"price\": 1849.99,\n      \"CPU model\": \"Intel Core i9\",\n      \"Hard disk size\": \"1 TB\"\n   }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://api.restful-api.dev/objects"
+					},
+					"response": []
+				}
+			],
 			"id": "d2143a00-7297-4834-beb8-2393927696ae"
 		},
 		{
