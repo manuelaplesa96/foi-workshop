@@ -7,7 +7,21 @@
 	"item": [
 		{
 			"name": "1. vjezba - GET request i dokumentacija",
-			"item": [],
+			"item": [
+				{
+					"name": "GetSomething",
+					"id": "803e37f4-2944-4f68-b228-033ceaa522b4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/libraries"
+					},
+					"response": []
+				}
+			],
 			"id": "c0c59178-6a16-47a0-af06-79ba927fd77a"
 		},
 		{
