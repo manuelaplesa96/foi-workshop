@@ -9,7 +9,7 @@
 			"name": "1. vjezba - GET request i dokumentacija",
 			"item": [
 				{
-					"name": "GetObjects",
+					"name": "ObjectCollection",
 					"id": "803e37f4-2944-4f68-b228-033ceaa522b4",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -17,38 +17,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "https://api.restful-api.dev/objects"
-					},
-					"response": []
-				},
-				{
-					"name": "GetSingleObject",
-					"id": "b3261d04-9323-4ba1-8838-b6c07abd474d",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://api.restful-api.dev/objects/:object_id",
-							"protocol": "https",
-							"host": [
-								"api",
-								"restful-api",
-								"dev"
-							],
-							"path": [
-								"objects",
-								":object_id"
-							],
-							"variable": [
-								{
-									"key": "object_id",
-									"value": ""
-								}
-							]
-						}
+						"url": "http://localhost:8080/api/libraries"
 					},
 					"response": []
 				}
@@ -57,30 +26,7 @@
 		},
 		{
 			"name": "2. vjezba - POST i PATCH/PUT request",
-			"item": [
-				{
-					"name": "CreateObject",
-					"id": "14f92896-28c9-412c-9702-ea1053999267",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n   \"name\": \"Apple MacBook Pro 16\",\n   \"data\": {\n      \"year\": 2019,\n      \"price\": 1849.99,\n      \"CPU model\": \"Intel Core i9\",\n      \"Hard disk size\": \"1 TB\"\n   }\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "https://api.restful-api.dev/objects"
-					},
-					"response": []
-				}
-			],
+			"item": [],
 			"id": "d2143a00-7297-4834-beb8-2393927696ae"
 		},
 		{
