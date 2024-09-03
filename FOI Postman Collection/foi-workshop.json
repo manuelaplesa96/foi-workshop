@@ -47,10 +47,11 @@
 							"variable": [
 								{
 									"key": "object_id",
-									"value": ""
+									"value": "3"
 								}
 							]
-						}
+						},
+						"description": "This endpoint makes an HTTP GET request to retrieve information about a specific object identified by its object_id. The purpose of this request is to fetch details of the object.\n\n### Request\n\n- Method: GET\n    \n- URL: `https://api.restful-api.dev/objects/:object_id`\n    \n\n### Response\n\nUpon a successful execution, the response will have a status code of 200 and a content type of `application/json`. The response body will contain the details of the object, including its ID, name, and data related to color and capacity in GB.\n\n### Specific Headers\n\nNo specific headers are required for this request.\n\n### Parameters\n\n- `object_id` (in the URL path): The unique identifier of the object for which the details are being fetched."
 					},
 					"response": []
 				}
