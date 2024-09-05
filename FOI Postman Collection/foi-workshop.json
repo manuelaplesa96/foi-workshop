@@ -239,10 +239,13 @@
 									"var name = \"Just another test object\";",
 									"var data = {",
 									"    \"year\": 2024,",
-									"    \"price\": 20,",
-									"    \"CPU model\": \"Intel Core i9\",",
-									"    \"Hard disk size\": \"1 TB\"",
+									"    \"price\": 20",
 									"};",
+									"",
+									"pm.request.headers.add({",
+									"    key: 'Content-Type',",
+									"    value: 'application/json'",
+									"});",
 									"",
 									"pm.request.body.update(JSON.stringify({",
 									"    name: name,",
@@ -288,7 +291,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{}",
+							"raw": "{\n   \"name\": \"Just another test object\",\n   \"data\": {\n      \"year\": 2024,\n      \"price\": 20\n   }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
