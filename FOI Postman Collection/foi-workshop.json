@@ -230,6 +230,48 @@
 				},
 				{
 					"name": "CreateObject",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "c4aeb260-80ae-4013-bcf5-c98420fc6a08",
+								"exec": [
+									"var name = \"Just another test object\";",
+									"var data = {",
+									"    \"year\": 2024,",
+									"    \"price\": 20",
+									"};",
+									"",
+									"pm.request.body.update(JSON.stringify({",
+									"    name: name,",
+									"    data: data",
+									"}));"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "13e81c3a-dc95-494b-a8cf-2684c0ce857b",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var responseJson = pm.response.json();",
+									"",
+									"pm.test(\"Object has correct name\", function() {",
+									"    pm.expect(responseJson).has.property(\"name\");",
+									"    pm.expect(responseJson[\"name\"]).equal(pm.variables.get(\"\"))",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "bd0be056-8a4b-4fa5-9721-afb02a7fdbe9",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -239,7 +281,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n   \"name\": \"Just another test object\",\n   \"data\": {\n      \"year\": 2024,\n      \"price\": 20\n   }\n}",
+							"raw": "{\n}",
 							"options": {
 								"raw": {
 									"language": "json"
