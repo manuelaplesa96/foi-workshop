@@ -168,7 +168,20 @@
 		},
 		{
 			"name": "4. vjezba - Testiranje",
-			"item": [],
+			"item": [
+				{
+					"name": "GetObject",
+					"id": "41a52745-4030-4393-8acd-b5446d45c54c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			],
 			"id": "cd015da7-eaf9-498a-bd2c-bc61211dcc72"
 		},
 		{
