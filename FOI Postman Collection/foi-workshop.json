@@ -242,6 +242,9 @@
 									"    \"price\": 20",
 									"};",
 									"",
+									"pm.environment.set(\"object_name\", name);",
+									"pm.environment.set(\"object_data\", data);",
+									"",
 									"pm.request.headers.add({",
 									"    key: 'Content-Type',",
 									"    value: 'application/json'",
@@ -266,16 +269,18 @@
 									"});",
 									"",
 									"var responseJson = pm.response.json();",
+									"console.log(pm.)",
 									"",
 									"pm.test(\"Object has correct name\", function() {",
-									"    pm.expect(responseJson).has.property(\"name\");",
-									"    pm.expect(responseJson[\"name\"]).equal(pm.variables.get(name));",
+									"    pm.expect(responseJson).to.have.property(\"name\");",
+									"    pm.expect(responseJson.name).to.equal(pm.variables.name);",
 									"});",
 									"",
 									"pm.test(\"Object has correct data\", function() {",
-									"    pm.expect(responseJson).has.property(\"data\");",
-									"    pm.expect(responseJson[\"data\"]).equal(pm.variables.get(data));",
-									"});"
+									"    pm.expect(responseJson).to.have.property(\"data\");",
+									"    pm.expect(responseJson.data).to.equal(pm.variables.get(\"data\"));",
+									"});",
+									""
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -291,7 +296,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n   \"name\": \"Just another test object\",\n   \"data\": {\n      \"year\": 2024,\n      \"price\": 20\n   }\n}",
+							"raw": "{\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -315,7 +320,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "346a3dd4-3b7e-40c6-945d-e61f9c85fb8a",
+				"id": "83647fc4-1cfd-4f36-9148-f4f042303856",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -326,7 +331,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "fcd685fe-d82e-4ee7-ba00-3945dd834217",
+				"id": "be5f9e08-17cd-46c8-a81e-076dd6717da4",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -345,10 +350,6 @@
 			"key": "object_id",
 			"value": "ff80818191c06f6b0191c111a7010205",
 			"type": "string"
-		},
-		{
-			"key": "todo_uuid",
-			"value": ""
 		}
 	]
 }
