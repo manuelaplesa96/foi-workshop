@@ -77,7 +77,7 @@
 								}
 							}
 						},
-						"url": "https://api.restful-api.dev/objects",
+						"url": "{{base_url}}/objects",
 						"description": "This endpoint allows you to create a new object.\n\n### Request Body\n\n- `name` (string, required): The object's name.\n    \n- `data` (object, required): Additional data for the object including year, price, CPU model, and hard disk size.\n    \n\n### Response\n\n- Status: 200\n    \n- Content-Type: application/json\n    \n\nThe response body will contain the details of the object, including its ID, name, and some data that describes that object.\n\n##### Example response:\n\n``` json\n{\n    \"id\": \"ff80818191b6f0300191b783d8790271\",\n    \"name\": \"Apple MacBook Pro 16\",\n    \"createdAt\": \"2024-09-03T10:52:36.858+00:00\",\n    \"data\": {\n        \"year\": 2019,\n        \"price\": 1849.99,\n        \"CPU model\": \"Intel Core i9\",\n        \"Hard disk size\": \"1 TB\"\n    }\n}\n\n ```"
 					},
 					"response": []
@@ -101,12 +101,9 @@
 							}
 						},
 						"url": {
-							"raw": "https://api.restful-api.dev/objects/:object_id",
-							"protocol": "https",
+							"raw": "{{base_url}}/objects/:object_id",
 							"host": [
-								"api",
-								"restful-api",
-								"dev"
+								"{{base_url}}"
 							],
 							"path": [
 								"objects",
@@ -142,12 +139,9 @@
 							}
 						},
 						"url": {
-							"raw": "https://api.restful-api.dev/objects/:object_id",
-							"protocol": "https",
+							"raw": "{{base_url}}/objects/:object_id",
 							"host": [
-								"api",
-								"restful-api",
-								"dev"
+								"{{base_url}}"
 							],
 							"path": [
 								"objects",
