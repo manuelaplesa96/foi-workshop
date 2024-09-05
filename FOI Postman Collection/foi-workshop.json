@@ -193,10 +193,18 @@
 									"    // }",
 									"",
 									"pm.test(\"Object id\", function() {",
-									"    responseJson.have()",
+									"    pm.expect(responseJson).to.have.property(\"id\");",
+									"    pm.expect(responseJson[\"id\"]).to.equal(pm.collectionVariables.get(\"object_id\"));",
 									"});",
 									"",
-									"pm.collectionVariables.set(\"todo_uuid\", responseJson['uuid']);"
+									"pm.test(\"Object to have name\", function() {",
+									"    pm.expect(responseJson).to.have.property(\"name\");",
+									"});",
+									"",
+									"pm.test(\"Object to have data\", function() {",
+									"    pm.expect(responseJson).to.have.property(\"data\");",
+									"});",
+									""
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -226,6 +234,18 @@
 								}
 							]
 						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"id": "bd0be056-8a4b-4fa5-9721-afb02a7fdbe9",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
 					},
 					"response": []
 				}
