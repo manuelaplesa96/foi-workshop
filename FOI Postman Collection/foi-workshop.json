@@ -177,7 +177,23 @@
 					},
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/objects/:object_id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"objects",
+								":object_id"
+							],
+							"variable": [
+								{
+									"key": "object_id",
+									"value": "ff80818191c06f6b0191c111a7010205"
+								}
+							]
+						}
 					},
 					"response": []
 				}
