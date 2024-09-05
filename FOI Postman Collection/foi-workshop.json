@@ -18,7 +18,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "https://api.restful-api.dev/objects",
+						"url": "{{base_url}}/objects",
 						"description": "This endpoint makes an HTTP GET request to retrieve a list of objects.\n\n### Request Body\n\nThis request does not require a request body.\n\n### Parameters\n\nThis request does not require any parameter.\n\n### Response\n\n- Status: 200\n    \n- Content-Type: application/json\n    \n\nThe response body returns an array of objects, each containing an \"id\", \"name\", and \"data\" object with \"color\" and \"capacity\" properties.\n\n##### Example response:\n\n``` json\n[\n    {\n        \"id\": \"1\",\n        \"name\": \"Google Pixel 6 Pro\",\n        \"data\": {\n            \"color\": \"Cloudy White\",\n            \"capacity\": \"128 GB\"\n        }\n    },\n    ...\n]\n\n ```"
 					},
 					"response": []
@@ -33,12 +33,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://api.restful-api.dev/objects/:object_id",
-							"protocol": "https",
+							"raw": "{{base_url}}/objects/:object_id",
 							"host": [
-								"api",
-								"restful-api",
-								"dev"
+								"{{base_url}}"
 							],
 							"path": [
 								"objects",
@@ -190,7 +187,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "0f1677e4-a702-4070-b80c-a0da652f96c3",
+				"id": "0209dd3e-98cc-4071-abf4-27e748ae7915",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -201,13 +198,20 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "322c6568-cbc0-4e6c-9299-b584dfdb6baa",
+				"id": "fa27e27f-4e92-4334-a873-ced8704423e7",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
 					""
 				]
 			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "https://api.restful-api.dev",
+			"type": "string"
 		}
 	]
 }
