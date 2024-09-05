@@ -239,7 +239,9 @@
 									"var name = \"Just another test object\";",
 									"var data = {",
 									"    \"year\": 2024,",
-									"    \"price\": 20",
+									"    \"price\": 20,",
+									"    \"CPU model\": \"Intel Core i9\",",
+									"    \"Hard disk size\": \"1 TB\"",
 									"};",
 									"",
 									"pm.request.body.update(JSON.stringify({",
@@ -264,7 +266,12 @@
 									"",
 									"pm.test(\"Object has correct name\", function() {",
 									"    pm.expect(responseJson).has.property(\"name\");",
-									"    pm.expect(responseJson[\"name\"]).equal(pm.variables.get(\"\"))",
+									"    pm.expect(responseJson[\"name\"]).equal(pm.variables.get(name));",
+									"});",
+									"",
+									"pm.test(\"Object has correct data\", function() {",
+									"    pm.expect(responseJson).has.property(\"data\");",
+									"    pm.expect(responseJson[\"data\"]).equal(pm.variables.get(data));",
 									"});"
 								],
 								"type": "text/javascript",
@@ -281,7 +288,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n}",
+							"raw": "{}",
 							"options": {
 								"raw": {
 									"language": "json"
