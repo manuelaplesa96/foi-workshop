@@ -325,7 +325,114 @@
 		},
 		{
 			"name": "5. vjezba - Run Collection",
-			"item": [],
+			"item": [
+				{
+					"name": "1.CreateObject",
+					"id": "e070c992-5918-48f5-a434-be29c6a86f47",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Run collection object\",\n    \"data\": {\n        \"year\": 2024\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/objects"
+					},
+					"response": []
+				},
+				{
+					"name": "2.GetObject",
+					"id": "b38234c6-9cae-4b46-a305-5e646597ea4f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/objects/:object_id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"objects",
+								":object_id"
+							],
+							"variable": [
+								{
+									"key": "object_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.DeleteObject",
+					"id": "1825d9a7-456a-4fca-80ea-c563fb8cb66d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/objects/:object_id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"objects",
+								":object_id"
+							],
+							"variable": [
+								{
+									"key": "object_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4.GetObject",
+					"id": "e6cf4c37-d82d-48ce-b810-aaf9e479e6f4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/objects/:object_id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"objects",
+								":object_id"
+							],
+							"variable": [
+								{
+									"key": "object_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
 			"id": "6c152e47-bcf8-400b-95d2-fc20c5f59207"
 		}
 	],
