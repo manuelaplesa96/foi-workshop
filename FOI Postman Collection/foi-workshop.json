@@ -108,7 +108,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "98949169-d70c-4fa1-b859-95bb2aa7046a",
+				"id": "0f1677e4-a702-4070-b80c-a0da652f96c3",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -119,25 +119,13 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "f5293f1f-e3b5-459d-acc7-125e07aa7d74",
+				"id": "322c6568-cbc0-4e6c-9299-b584dfdb6baa",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
 					""
 				]
 			}
-		}
-	],
-	"variable": [
-		{
-			"key": "YOUR-API-KEY",
-			"value": "",
-			"type": "string",
-			"disabled": true
-		},
-		{
-			"key": "todo_uuid",
-			"value": ""
 		}
 	]
 }
