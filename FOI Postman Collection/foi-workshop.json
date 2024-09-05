@@ -183,15 +183,6 @@
 									"",
 									"var responseJson = pm.response.json();",
 									"",
-									"    // \"id\": \"ff80818191c06f6b0191c111a7010205\",",
-									"    // \"name\": \"Apple MacBook Pro 16 (Updated Name)\",",
-									"    // \"data\": {",
-									"    //     \"year\": 2018,",
-									"    //     \"price\": 1849.99,",
-									"    //     \"CPU model\": \"Intel Core i9\",",
-									"    //     \"Hard disk size\": \"1 TB\"",
-									"    // }",
-									"",
 									"pm.test(\"Object id\", function() {",
 									"    pm.expect(responseJson).to.have.property(\"id\");",
 									"    pm.expect(responseJson[\"id\"]).to.equal(pm.collectionVariables.get(\"object_id\"));",
@@ -238,14 +229,24 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "CreateObject",
 					"id": "bd0be056-8a4b-4fa5-9721-afb02a7fdbe9",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
 					"request": {
-						"method": "GET",
-						"header": []
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"name\": \"Just another test object\",\n   \"data\": {\n      \"year\": 2024,\n      \"price\": 20\n   }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/objects"
 					},
 					"response": []
 				}
