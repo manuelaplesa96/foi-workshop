@@ -162,7 +162,8 @@
 									"value": "ff80818191c06f6b0191c111a7010205"
 								}
 							]
-						}
+						},
+						"description": "This endpoint is used to partially update an object with the specified ID.\n\n#### Request Body\n\n- `name` (string, optional): The new name for the object.\n    \n- `data` (object, optional): Additional data for the object including year, price, CPU model, and hard disk size.\n    \n\n#### Response\n\n- Status: 200\n    \n- Content-Type: application/json\n    \n\nThe response body will contain the details of the object, including its ID, name, and some data that describes that object.\n\n##### Example response:\n\n``` json\n{\n    \"id\": \"ff80818191b6f0300191b783d8790271\",\n    \"name\": \"Apple MacBook Pro 16\",\n    \"createdAt\": \"2024-09-03T10:52:36.858+00:00\",\n    \"data\": {\n        \"year\": 2019,\n        \"price\": 1849.99,\n        \"CPU model\": \"Intel Core i9\",\n        \"Hard disk size\": \"1 TB\"\n    }\n}\n\n ```"
 					},
 					"response": []
 				}
