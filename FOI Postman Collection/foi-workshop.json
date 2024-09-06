@@ -372,9 +372,7 @@
 							"script": {
 								"id": "73744ea6-b501-404d-9124-5fd26d2c4e30",
 								"exec": [
-									"var objectId = pm.environment.get(\"run_collection_object_id\");",
-									"",
-									"pm.request.update.arguments(\"object_id\", objectId);"
+									""
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -400,7 +398,7 @@
 							"variable": [
 								{
 									"key": "object_id",
-									"value": ""
+									"value": "{{run_collection_object_id}}"
 								}
 							]
 						}
