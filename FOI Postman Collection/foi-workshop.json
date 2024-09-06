@@ -328,6 +328,22 @@
 			"item": [
 				{
 					"name": "1.CreateObject",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c9c53b4f-0660-4c8a-bf6a-eeb8a4d9122e",
+								"exec": [
+									"var jsonResponse = pm.response.json();",
+									"",
+									"pm.environment.set(\"run_collection_object_id\", jsonResponse.id);",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "e070c992-5918-48f5-a434-be29c6a86f47",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
