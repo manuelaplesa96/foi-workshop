@@ -366,6 +366,21 @@
 				},
 				{
 					"name": "2.GetObject",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "73744ea6-b501-404d-9124-5fd26d2c4e30",
+								"exec": [
+									"var objectId = pm.environment.get(\"run_collection_object_id\");",
+									"",
+									"pm.request.update.arguments(\"object_id\", objectId);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "b38234c6-9cae-4b46-a305-5e646597ea4f",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
