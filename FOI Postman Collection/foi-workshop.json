@@ -599,7 +599,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n   \"name\": {{updated_object_name}}\n}",
+							"raw": "{\n   \"name\": \"{{updated_object_name}}\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -617,7 +617,6 @@
 							],
 							"variable": [
 								{
-									"id": "24164d3a-3a82-41f7-aefb-c13f257caf3a",
 									"key": "object_id",
 									"value": "{{object_id}}"
 								}
