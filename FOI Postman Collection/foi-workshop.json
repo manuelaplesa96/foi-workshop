@@ -549,7 +549,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n   \"name\": {{new_object_name}},\n   \"data\": {\n      \"year\": {{new_object_year}},\n      \"price\": {{new_object_price}}\n   }\n}",
+							"raw": "{\n   \"name\": \"{{new_object_name}}\",\n   \"data\": {\n      \"year\": {{new_object_year}},\n      \"price\": {{new_object_price}}\n   }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
