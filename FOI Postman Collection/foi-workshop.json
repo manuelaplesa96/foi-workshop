@@ -157,6 +157,34 @@
 						"description": "This endpoint is used to partially update an object with the specified ID.\n\n#### Request Body\n\n- `name` (string, optional): The new name for the object.\n    \n- `data` (object, optional): Additional data for the object including year, price, CPU model, and hard disk size.\n    \n\n#### Response\n\n- Status: 200\n    \n- Content-Type: application/json\n    \n\nThe response body will contain the details of the object, including its ID, name, and some data that describes that object.\n\n##### Example response:\n\n``` json\n{\n    \"id\": \"ff80818191b6f0300191b783d8790271\",\n    \"name\": \"Apple MacBook Pro 16\",\n    \"createdAt\": \"2024-09-03T10:52:36.858+00:00\",\n    \"data\": {\n        \"year\": 2019,\n        \"price\": 1849.99,\n        \"CPU model\": \"Intel Core i9\",\n        \"Hard disk size\": \"1 TB\"\n    }\n}\n\n ```"
 					},
 					"response": []
+				},
+				{
+					"name": "DeleteObject",
+					"id": "5de6e96a-d8fc-4a5f-bfbf-2ca2e5bc494b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/objects/:object_id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"objects",
+								":object_id"
+							],
+							"variable": [
+								{
+									"key": "object_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"id": "d2143a00-7297-4834-beb8-2393927696ae"
