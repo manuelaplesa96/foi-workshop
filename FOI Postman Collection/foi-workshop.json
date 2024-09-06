@@ -377,6 +377,17 @@
 								"type": "text/javascript",
 								"packages": {}
 							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "4a9e1013-4294-437d-a9be-8b986b9dc2e2",
+								"exec": [
+									"console.log(pm.response.json());"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
 						}
 					],
 					"id": "b38234c6-9cae-4b46-a305-5e646597ea4f",
@@ -426,7 +437,7 @@
 							"variable": [
 								{
 									"key": "object_id",
-									"value": ""
+									"value": "{{run_collection_object_id}}"
 								}
 							]
 						}
@@ -435,6 +446,21 @@
 				},
 				{
 					"name": "4.GetObject",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5fc9583e-0c1e-4c9c-9003-b9f074001538",
+								"exec": [
+									"pm.test(\"404 response\", function() {",
+									"    pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "e6cf4c37-d82d-48ce-b810-aaf9e479e6f4",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -454,7 +480,7 @@
 							"variable": [
 								{
 									"key": "object_id",
-									"value": ""
+									"value": "{{run_collection_object_id}}"
 								}
 							]
 						}
