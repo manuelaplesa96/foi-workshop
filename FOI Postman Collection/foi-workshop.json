@@ -334,9 +334,15 @@
 							"script": {
 								"id": "c9c53b4f-0660-4c8a-bf6a-eeb8a4d9122e",
 								"exec": [
+									"console.log(pm.response.json());",
+									"",
 									"var jsonResponse = pm.response.json();",
 									"",
 									"pm.environment.set(\"run_collection_object_id\", jsonResponse.id);",
+									"",
+									"pm.test(\"200 response\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});",
 									""
 								],
 								"type": "text/javascript",
@@ -383,7 +389,18 @@
 							"script": {
 								"id": "4a9e1013-4294-437d-a9be-8b986b9dc2e2",
 								"exec": [
-									"console.log(pm.response.json());"
+									"console.log(pm.response.json());",
+									"",
+									"pm.test(\"200 response\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Correct response\", function() {",
+									"    var jsonResponse = pm.response.json();",
+									"    ",
+									"    pm.expect(jsonResponse).to.have.property(\"id\");",
+									"    pm.expect(jsonResponse.id).to.be.equal(pm.environment.get(\"run_collection_object_id\"));",
+									"});"
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -424,6 +441,8 @@
 							"script": {
 								"id": "82409f3b-35a9-45ef-b59c-446b60f44d51",
 								"exec": [
+									"console.log(pm.response.json());",
+									"",
 									"pm.test(\"200 response\", function() {",
 									"    pm.response.to.have.status(200);",
 									"});",
@@ -476,6 +495,8 @@
 							"script": {
 								"id": "5fc9583e-0c1e-4c9c-9003-b9f074001538",
 								"exec": [
+									"console.log(pm.response.json());",
+									"",
 									"pm.test(\"404 response\", function() {",
 									"    pm.response.to.have.status(404);",
 									"});"
