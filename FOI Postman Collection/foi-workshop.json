@@ -44,7 +44,7 @@
 							"variable": [
 								{
 									"key": "object_id",
-									"value": "{{object_id}}"
+									"value": "ff80818191c06f6b0191c111a7010205"
 								}
 							]
 						},
@@ -131,7 +131,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n   \"name\": \"Apple MacBook Pro 16 (Updated Name)\"\n}",
+							"raw": "{\n   \"name\": {{updated_object_name}}\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -562,13 +562,69 @@
 				}
 			],
 			"id": "6c152e47-bcf8-400b-95d2-fc20c5f59207"
+		},
+		{
+			"name": "6. vjezba - Flow",
+			"item": [
+				{
+					"name": "GetObject",
+					"id": "be879ec9-4415-41e7-a505-a87db914e805",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/objects/:object_id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"objects",
+								":object_id"
+							],
+							"variable": [
+								{
+									"key": "object_id",
+									"value": "{{object_id}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateObject",
+					"id": "61e901f8-d122-4292-9463-1ab31cba8c0b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"name\": {{new_object_name}},\n   \"data\": {\n      \"year\": {{new_object_year}},\n      \"price\": {{new_object_price}}\n   }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/objects"
+					},
+					"response": []
+				}
+			],
+			"id": "89d6b7d8-d3e6-43ce-b8a9-114eff03472e"
 		}
 	],
 	"event": [
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "83647fc4-1cfd-4f36-9148-f4f042303856",
+				"id": "54c177b5-af5d-4e1b-8555-3690d403bf78",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -579,7 +635,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "be5f9e08-17cd-46c8-a81e-076dd6717da4",
+				"id": "dcd836ac-cad2-4918-bf2f-a849211884e3",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -597,6 +653,26 @@
 		{
 			"key": "object_id",
 			"value": "ff80818191c06f6b0191c111a7010205",
+			"type": "string"
+		},
+		{
+			"key": "updated_object_name",
+			"value": "Updated Object",
+			"type": "string"
+		},
+		{
+			"key": "new_object_name",
+			"value": "New Test Object",
+			"type": "string"
+		},
+		{
+			"key": "new_object_year",
+			"value": "2024",
+			"type": "string"
+		},
+		{
+			"key": "new_object_price",
+			"value": "20",
 			"type": "string"
 		}
 	]
