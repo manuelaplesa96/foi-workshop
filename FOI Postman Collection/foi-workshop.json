@@ -418,6 +418,30 @@
 				},
 				{
 					"name": "3.DeleteObject",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "82409f3b-35a9-45ef-b59c-446b60f44d51",
+								"exec": [
+									"pm.test(\"200 response\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var jsonResponse = pm.response.json();",
+									"",
+									"pm.test(\"Correct response message\", function() {",
+									"    pm.expect(jsonResponse).to.have.property(\"message\");",
+									"",
+									"    var resMessage = \"Object with id = \" + pm.environment.get(\"run_collection_object_id\") + \" has been deleted.\"",
+									"    pm.expect(jsonResponse.message).to.be.equal(resMessage);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "1825d9a7-456a-4fca-80ea-c563fb8cb66d",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
