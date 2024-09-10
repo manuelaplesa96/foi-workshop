@@ -177,28 +177,35 @@
 							"script": {
 								"id": "9e31bbff-6db1-46b4-b0b1-e6e40193c957",
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
+									"pm.test('Status code is 200', function () {",
 									"    pm.response.to.have.status(200);",
 									"});",
 									"",
 									"var responseJson = pm.response.json();",
 									"",
-									"pm.test(\"Object id\", function() {",
-									"    pm.expect(responseJson).to.have.property(\"id\");",
-									"    pm.expect(responseJson[\"id\"]).to.equal(pm.collectionVariables.get(\"object_id\"));",
+									"pm.test('Object id', function() {",
+									"    pm.expect(responseJson).to.have.property('id');",
+									"    pm.expect(responseJson['id']).to.equal(pm.collectionVariables.get('object_id'));",
 									"});",
 									"",
-									"pm.test(\"Object to have name\", function() {",
-									"    pm.expect(responseJson).to.have.property(\"name\");",
+									"pm.test('Object to have name', function() {",
+									"    pm.expect(responseJson).to.have.property('name');",
 									"});",
 									"",
-									"pm.test(\"Object to have data\", function() {",
-									"    pm.expect(responseJson).to.have.property(\"data\");",
+									"pm.test('Object to have data', function() {",
+									"    pm.expect(responseJson).to.have.property('data');",
 									"});",
 									""
 								],
 								"type": "text/javascript",
 								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"packages": {},
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -236,24 +243,9 @@
 							"script": {
 								"id": "c4aeb260-80ae-4013-bcf5-c98420fc6a08",
 								"exec": [
-									"// var name = \"Just another test object\";",
-									"// var data = {",
-									"//     \"year\": 2024,",
-									"//     \"price\": 20",
-									"// };",
-									"",
-									"// pm.environment.set(\"object_name\", name);",
-									"// pm.environment.set(\"object_data\", data);",
-									"",
-									"// pm.request.headers.add({",
-									"//     key: 'Content-Type',",
-									"//     value: 'application/json'",
-									"// });",
-									"",
-									"// pm.request.body.update(JSON.stringify({",
-									"//     name: name,",
-									"//     data: data",
-									"// }));"
+									"pm.environment.set('new_object_name', 'Newly created object');",
+									"pm.environment.set('new_object_year', 2023);",
+									"pm.environment.set('new_object_price', 40);"
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -264,29 +256,27 @@
 							"script": {
 								"id": "13e81c3a-dc95-494b-a8cf-2684c0ce857b",
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
+									"pm.test('Status code is 200', function () {",
 									"    pm.response.to.have.status(200);",
 									"});",
 									"",
 									"var responseJson = pm.response.json();",
 									"",
-									"pm.test(\"Object has correct name\", function() {",
-									"    pm.expect(responseJson).to.have.property(\"name\");",
-									"    // pm.expect(responseJson.name).to.equal(pm.environment.get(\"object_name\"));",
-									"    pm.expect(responseJson.name).to.equal(\"Just another test object\");",
+									"pm.test('Object has correct name', function() {",
+									"    pm.expect(responseJson).to.have.property('name');",
+									"    pm.expect(responseJson.name).to.equal(pm.environment.get('new_object_name'));",
 									"});",
 									"",
-									"pm.test(\"Object has data\", function() {",
-									"    pm.expect(responseJson).to.have.property(\"data\"); ",
+									"pm.test('Object has data', function() {",
+									"    pm.expect(responseJson).to.have.property('data'); ",
 									"});",
 									"",
-									"// var data = pm.environment.get(\"object_data\");",
 									"var data = {",
-									"    \"year\": 2024,",
-									"    \"price\": 20",
+									"    'year': pm.environment.get('new_object_year'),",
+									"    'price': pm.environment.get('new_object_price')",
 									"};",
 									"",
-									"pm.test(\"Object has correct year\", function() {",
+									"pm.test('Object has correct year', function() {",
 									"    pm.expect(responseJson.data.year).to.equal(data.year);",
 									"});",
 									"",
@@ -309,7 +299,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\":  \"Just another test object\",\n    \"data\": {\n        \"year\": 2024,\n        \"price\": 20\n    }\n}",
+							"raw": "{\n    \"name\":  \"{{new_object_name}}\",\n    \"data\": {\n        \"year\": {{new_object_year}},\n        \"price\": {{new_object_price}}\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -338,9 +328,9 @@
 									"",
 									"var jsonResponse = pm.response.json();",
 									"",
-									"pm.environment.set(\"run_collection_object_id\", jsonResponse.id);",
+									"pm.environment.set('run_collection_object_id', jsonResponse.id);",
 									"",
-									"pm.test(\"200 response\", function() {",
+									"pm.test('200 response', function() {",
 									"    pm.response.to.have.status(200);",
 									"});",
 									""
@@ -391,15 +381,15 @@
 								"exec": [
 									"console.log(pm.response.json());",
 									"",
-									"pm.test(\"200 response\", function() {",
+									"pm.test('200 response', function() {",
 									"    pm.response.to.have.status(200);",
 									"});",
 									"",
-									"pm.test(\"Correct response\", function() {",
+									"pm.test('Correct response', function() {",
 									"    var jsonResponse = pm.response.json();",
 									"    ",
-									"    pm.expect(jsonResponse).to.have.property(\"id\");",
-									"    pm.expect(jsonResponse.id).to.be.equal(pm.environment.get(\"run_collection_object_id\"));",
+									"    pm.expect(jsonResponse).to.have.property('id');",
+									"    pm.expect(jsonResponse.id).to.be.equal(pm.environment.get('run_collection_object_id'));",
 									"});"
 								],
 								"type": "text/javascript",
@@ -443,16 +433,16 @@
 								"exec": [
 									"console.log(pm.response.json());",
 									"",
-									"pm.test(\"200 response\", function() {",
+									"pm.test('200 response', function() {",
 									"    pm.response.to.have.status(200);",
 									"});",
 									"",
 									"var jsonResponse = pm.response.json();",
 									"",
-									"pm.test(\"Correct response message\", function() {",
-									"    pm.expect(jsonResponse).to.have.property(\"message\");",
+									"pm.test('Correct response message', function() {",
+									"    pm.expect(jsonResponse).to.have.property('message');",
 									"",
-									"    var resMessage = \"Object with id = \" + pm.environment.get(\"run_collection_object_id\") + \" has been deleted.\"",
+									"    var resMessage = 'Object with id = ' + pm.environment.get('run_collection_object_id') + ' has been deleted.'",
 									"    pm.expect(jsonResponse.message).to.be.equal(resMessage);",
 									"});"
 								],
@@ -497,7 +487,7 @@
 								"exec": [
 									"console.log(pm.response.json());",
 									"",
-									"pm.test(\"404 response\", function() {",
+									"pm.test('404 response', function() {",
 									"    pm.response.to.have.status(404);",
 									"});"
 								],
@@ -662,7 +652,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "54c177b5-af5d-4e1b-8555-3690d403bf78",
+				"id": "5b728544-6bf7-41a0-a047-ee9645d6d53a",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -673,7 +663,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "dcd836ac-cad2-4918-bf2f-a849211884e3",
+				"id": "bfccbd00-e882-410f-834e-4e3e57cd57dc",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
