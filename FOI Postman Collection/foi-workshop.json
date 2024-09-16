@@ -188,11 +188,11 @@
 									"    pm.expect(responseJson['id']).to.equal(pm.collectionVariables.get('object_id'));",
 									"});",
 									"",
-									"pm.test('Object to have name', function() {",
+									"pm.test('Object has name', function() {",
 									"    pm.expect(responseJson).to.have.property('name');",
 									"});",
 									"",
-									"pm.test('Object to have data', function() {",
+									"pm.test('Object has data', function() {",
 									"    pm.expect(responseJson).to.have.property('data');",
 									"});",
 									""
@@ -204,8 +204,12 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"packages": {},
-								"type": "text/javascript"
+								"id": "2f7393e9-1638-457b-8f98-bca49cadf759",
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
 							}
 						}
 					],
